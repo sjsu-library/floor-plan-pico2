@@ -145,6 +145,13 @@ function buildMap (markers) {
   map.on('zoomend',  function(e) {
     resizeToolTips(500);
   });
+  //function to run when popup opens - makes close buttons work
+  map.on('popupopen', function(e){
+         //make close buttons work
+         $(".close-button").click(function() {
+          map.closePopup();
+        })
+};)
 
   //reload the page when the back button is used - forces page to rebuild from URL parameters
   window.addEventListener('popstate', function(event) {
@@ -368,11 +375,6 @@ function onBaseChange(e) {
      $(".leaflet-control-layers-overlays").wrap("<details id='overlays-accordion'></details>")
      $("#overlays-accordion").append("<summary>On This Floor</summary>");
      $("#overlays-accordion").wrap("<div id='overlays-outer'></div>");
-
-     //make close buttons work
-     $(".close-button").click(function() {
-      map.closePopup();
-    })
 
      //adjust tooltip size and position based on zoom level
      $(".leaflet-tooltip").css("opacity", 0);
