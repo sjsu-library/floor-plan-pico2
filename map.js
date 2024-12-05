@@ -337,6 +337,9 @@ function onBaseChange(e) {
         //add the marker to a list of markers that belong to the current group
         currentGroupArray.push(thisMarker);
       }
+      $(".close-button").click(function() {
+        map.closePopup();
+      })
     });
     //add the array of all markers in the group to the layer control
     var currentLayerGroup = L.layerGroup(currentGroupArray);
