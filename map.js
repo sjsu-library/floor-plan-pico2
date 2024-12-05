@@ -146,12 +146,12 @@ function buildMap (markers) {
     resizeToolTips(500);
   });
   //function to run when popup opens - makes close buttons work
-  map.on('popupopen', function(e){
+  map.on('popupopen', function(e) {
          //make close buttons work
          $(".close-button").click(function() {
           map.closePopup();
         })
-};)
+});
 
   //reload the page when the back button is used - forces page to rebuild from URL parameters
   window.addEventListener('popstate', function(event) {
