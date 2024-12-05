@@ -336,10 +336,7 @@ function onBaseChange(e) {
         //try pane:overlay-pane, after other changes
         //add the marker to a list of markers that belong to the current group
         currentGroupArray.push(thisMarker);
-      }
-      $(".close-button").click(function() {
-        map.closePopup();
-      })
+      } 
     });
     //add the array of all markers in the group to the layer control
     var currentLayerGroup = L.layerGroup(currentGroupArray);
@@ -371,6 +368,11 @@ function onBaseChange(e) {
      $(".leaflet-control-layers-overlays").wrap("<details id='overlays-accordion'></details>")
      $("#overlays-accordion").append("<summary>On This Floor</summary>");
      $("#overlays-accordion").wrap("<div id='overlays-outer'></div>");
+
+     //make close buttons work
+     $(".close-button").click(function() {
+      map.closePopup();
+    })
 
      //adjust tooltip size and position based on zoom level
      $(".leaflet-tooltip").css("opacity", 0);
